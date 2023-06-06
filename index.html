@@ -8,6 +8,7 @@
 	<script src="leaflet/leaflet.js"></script>
 	<script src="polyline-master/src/polyline.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+	<script src="lang.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -20,7 +21,7 @@
 	
 	<footer>
 		<p id="title_instructions">Click on the map to set an origin and then click again to set a destination. If the route created does not match to the path you use, you can delete the last point and add checkpoints along your route.</p>
-		<label for="input">Or select a GPS file instead :</label> <input type="file" id="file_input"><span style="color:red; display:block" id="warning"></span> 
+		<label for="file_input">Or select a GPS file instead :</label> <input type="file" id="file_input"><span style="color:red; display:block" id="warning"></span> 
 		<div id="button-container">
 			<button class="button" type="button" id="removeLastPoint" onclick="RemoveLastPoint();" disabled="true">Remove last point</button>
 			<button class="button" type="button" id="openPopup" onclick="OpenPopup();" disabled="true">End the route</button>
