@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bike path Survey</title>
+    <link rel="stylesheet" href="leaflet/leaflet.css" />
+	<link rel="stylesheet" href="style.css" />
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="leaflet/leaflet.js"></script>
+	<script src="polyline-master/src/polyline.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<header>
+			<h1 id="title_question">Where do you cycle in Trondheim ? (at least once a week)</h1>
+		<div id="language-links">
+			<img href="#" src="img/FlagUK.png" onclick="setLanguage('en')" title="English version"></img> | <img href="#" src="img/FlagNO.png" onclick="setLanguage('no')" title="Norsk versjon"></img>
+		</div>
+	</header>
+	
+	<footer>
+		<p id="title_instructions">Click on the map to set an origin and then click again to set a destination. If the route created does not match to the path you use, you can delete the last point and add checkpoints along your route.</p>
+		<label for="input">Or select a GPS file instead :</label> <input type="file" id="file_input"><span style="color:red; display:block" id="warning"></span> 
+		<div id="button-container">
+			<button class="button" type="button" id="removeLastPoint" onclick="RemoveLastPoint();" disabled="true">Remove last point</button>
+			<button class="button" type="button" id="openPopup" onclick="OpenPopup();" disabled="true">End the route</button>
+			<button class="button" type="button" id="sendRoute" onclick="SendRoute();" disabled="true">Submit your routes</button>
+		</div>
+	</footer>
+	
+	<div id="map-container">
+		<div id="map"></div>
+    </div>
+	
+	<div id="userFormDiv" class="form-group">
+		<div id="userForm" class="form-group">
+			<h1 id ="user_form_title">About you</h1>
+			
+			<label for="gender" id="gender_question">What is your gender ?</label><br>
+			
+			<input type="radio" id="male" name="gender" value="male" onclick="UpdateInput('otherGenderInput',true)"></input>
+			<label class="form-radio" id="male_label" for="male">Male</label><br>
+				
+			<input type="radio" id="female" name="gender" value="female" onclick="UpdateInput('otherGenderInput',true)"></input>
+			<label class="form-radio" id="female_label" for="female">Female</label><br>
+			
+			<input type="radio" id="otherGender" name="gender" value="other" onclick="UpdateInput('otherGenderInput',false)"></input>
+			<label class="form-radio" id="other_gender_label" for="otherGender">Other : </label>
+			<input type="text" name="gender" id="otherGenderInput" disabled="true"/> <br>
+			
+			<input type="radio" id="pnts" name="gender" value="prefernottosay" onclick="UpdateInput('otherGenderInput',true)"></input>
+			<label class="form-radio" id="pnts_label" for="pnts">Prefer not to say</label><br><br>
+				
+			<label for="age" id="age_question">What is your age ?</label><br>
+			<label class="form-radio">
+				<input type="radio" id="age0-18" name="age" value="0-18"></input>
+				-18<br>
+			</label>
+			<label class="form-radio">
+				<input type="radio" id="age19-35" name="age" value="19-35"></input>
+				18-35<br>
+			</label>
+			<label class="form-radio">
+				<input type="radio" id="age36-65" name="age" value="36-65"></input>
+				36-65<br>
+			</label>
+			<label class="form-radio">
+				<input type="radio" id="age65plus" name="age" value="65plus"></input>
+				65+<br>
+			</label>
+		</div>
+		<button type="button" id="sendRoute2" class="submitButton" onclick="SendRoute();" disabled="true">Submit your routes</button>
+	</div>
+	
+	<script src="script.js"></script>
+</body>
+</html>
