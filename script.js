@@ -269,7 +269,58 @@ function OpenPopup() {
 	closeButton: true});
   }
 	if (language == "no") {
-		// var popup = L.popup({content: document.getElementById("formdivNO").innerHTML});
+		var popup = L.popup({content: `
+			<div class="form-group">
+				<label for="purpose">Hva er formålet med denne reisen?<br></label>
+				<label class="form-radio">
+				  <input type="radio" id="work" name="purpose" value="work" checked="checked" onclick="UpdateInput('otherPurposeInput',true)"></input>
+				  Arbeid<br>
+				</label>
+				<label class="form-radio">
+				  <input type="radio" id="shop" name="purpose" value="shop" onclick="UpdateInput('otherPurposeInput',true)"></input>
+				  Shopping<br>
+				</label>
+				<label class="form-radio">
+				  <input type="radio" id="other" name="purpose" value="other" onclick="UpdateInput('otherPurposeInput',false)"></input>
+				  Annet: <input type="text" name="purpose" placeholder="Formålet med reisen" id="otherPurposeInput" disabled="false"/> <br><br>
+				</label>		
+			</div>
+			<div class="form-group">
+				<label for="purpose">Hvor mange ganger i uken sykler du denne ruten?<br></label>
+				<label class="form-radio">
+				  <input type="radio" id="frequency1" name="frequency" value="1-2 ganger i uken" checked="checked"></input>
+				  1-2 ganger i uken <br>
+				</label>
+				<label class="form-radio">
+				  <input type="radio" id="frequency2" name="frequency" value="3-4 ganger i uken"></input>
+				  3-4 ganger i uken <br>
+				</label>
+				<label class="form-radio">
+				  <input type="radio" id="frequency3" name="frequency" value=">4 ganger i uken"></input>
+				  4+ ganger i uken <br><br>
+				</label>		
+			</div>
+			<div class="form-group">
+				<label for="purpose">I hvilken tid av året sykler du denne ruten?<br></label>
+				<label class="form-radio">
+				  <input type="radio" id="season1" name="season" value="kun sommer" checked="checked"></input>
+				  Kun sommer <br>
+				</label>
+				<label class="form-radio">
+				  <input type="radio" id="season2" name="season" value="kun vinter"></input>
+				  Kun vinter <br>
+				</label>
+				<label class="form-radio">
+				  <input type="radio" id="season3" name="season" value="hele året"></input>
+				  Hele året <br><br>
+				</label>		
+			</div>
+
+			<em class="text-muted">Klikk på knappen for å validere denne ruten.</em>
+			<hr />
+			<button type="button" class="submitButton" onclick="EndRoute();">Valider denne ruten</button>
+			`,
+	closeButton: true});
 	};
 	markers.slice(-1)[0].bindPopup(popup).openPopup();
 }
