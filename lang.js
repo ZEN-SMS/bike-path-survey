@@ -1,6 +1,6 @@
 langEN = {
 	"title_question" : "Where do you cycle in Trondheim ?",
-	"title_instructions" : "Click on the map to set an origin and then click again to set a destination. If the route created does not match to the path you use, you can delete the last point and add checkpoints along your route.",
+	"title_instructions" : "Click on the map to set an origin and then click again to set a destination. If the route created does not match to the path you use, you can delete the last point and add checkpoints along your route. To ensure anonymity, we ask to start drawing about 200 m from the start and end point.",
 	"title_file_instructions" : "Or select a GPS file instead :",
 	"button_remove" : "Remove last point",
 	"button_end" : "End the route",
@@ -19,7 +19,7 @@ langEN = {
 
 langNO = {
 	"title_question" : "Hvor sykler du i Trondheim?",
-	"title_instructions" : "Klikk på kartet for å angi et utgangspunkt, og klikk deretter på nytt for å angi en destinasjon. Hvis ruten som opprettes, ikke samsvarer med ruten du bruker, kan du slette det siste punktet og legge til sjekkpunkter langs ruten.",
+	"title_instructions" : "Klikk på kartet for å angi et utgangspunkt, og klikk deretter på nytt for å angi en destinasjon. Hvis ruten som opprettes, ikke samsvarer med ruten du bruker, kan du slette det siste punktet og legge til sjekkpunkter langs ruten. For å sikre anonymitet, ber vi deg starte markeringen inntil 200 m fra start- og endepunktet.",
 	"title_file_instructions" : "Eller velg en GPS-fil i stedet:",
 	"button_remove" : "Fjern siste punkt",
 	"button_end" : "Avslutt ruten",
