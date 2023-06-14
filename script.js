@@ -288,30 +288,30 @@ function OpenPopup() {
 			<div class="form-group">
 				<label for="purpose">Hvor mange ganger i uken sykler du denne ruten?<br></label>
 				<label class="form-radio">
-				  <input type="radio" id="frequency1" name="frequency" value="1-2 ganger i uken" checked="checked"></input>
+				  <input type="radio" id="frequency1" name="frequency" value="1-2 times a week" checked="checked"></input>
 				  1-2 ganger i uken <br>
 				</label>
 				<label class="form-radio">
-				  <input type="radio" id="frequency2" name="frequency" value="3-4 ganger i uken"></input>
+				  <input type="radio" id="frequency2" name="frequency" value="3-4 times a week"></input>
 				  3-4 ganger i uken <br>
 				</label>
 				<label class="form-radio">
-				  <input type="radio" id="frequency3" name="frequency" value=">4 ganger i uken"></input>
+				  <input type="radio" id="frequency3" name="frequency" value=">4 times a week"></input>
 				  4+ ganger i uken <br><br>
 				</label>		
 			</div>
 			<div class="form-group">
 				<label for="purpose">I hvilken tid av året sykler du denne ruten?<br></label>
 				<label class="form-radio">
-				  <input type="radio" id="season1" name="season" value="kun sommer" checked="checked"></input>
+				  <input type="radio" id="season1" name="season" value="summer only" checked="checked"></input>
 				  Kun sommer <br>
 				</label>
 				<label class="form-radio">
-				  <input type="radio" id="season2" name="season" value="kun vinter"></input>
+				  <input type="radio" id="season2" name="season" value="winter only"></input>
 				  Kun vinter <br>
 				</label>
 				<label class="form-radio">
-				  <input type="radio" id="season3" name="season" value="hele året"></input>
+				  <input type="radio" id="season3" name="season" value="all the year"></input>
 				  Hele året <br><br>
 				</label>		
 			</div>
