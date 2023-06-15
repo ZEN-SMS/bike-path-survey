@@ -109,23 +109,32 @@ function onMapClick(e) {
 
 
 function RequestRoute(callback, coords) { //coords format : [[long1,lat1],[long2,lat2],... ]
-	var request = new XMLHttpRequest();
+    var request = new XMLHttpRequest();
 
-	
-	request.open('GET', 'https://api.openrouteservice.org/v2/directions/foot-walking?api_key=' + APIkey1 + '&start=' + coords[0][0] + ',' + coords[0][1] + '&end=' + coords[1][0] + ',' + coords[1][1]);
+    request.open('GET', 'https://api.openrouteservice.org/v2/directions/foot-walking?api_key=' + APIkey1 + '&start=' + coords[0][0] + ',' + coords[0][1] + '&end=' + coords[1][0] + ',' + coords[1][1]);
 
-	request.setRequestHeader('Accept', 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8');
+    request.setRequestHeader('Accept', 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8');
 
-	request.onreadystatechange = function () {
-	  if (this.readyState === 4) {
-		var route = JSON.parse(this.responseText);
-		callback(route.features[0].geometry.coordinates);
-	  }
-	};
+    request.onreadystatechange = function () {
+        if (this.readyState === 4) {
+            if (this.status === 200) {
+                var route = JSON.parse(this.responseText);
+                callback(route.features[0].geometry.coordinates);
+            } else {
+                DisplayError();
+				return
+            }
+        }
+    };
 
-	request.send();
+    request.send();
 }
 
+
+function DisplayError() {
+	document.getElementById('warning').innerHTML = lang.warning_api;
+	window.scrollTo({ left: 0, top: 0, behavior: "smooth" });
+};
 
 function DisplayRoute(route) {
 	for (p of route) {
