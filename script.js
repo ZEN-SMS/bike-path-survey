@@ -6,6 +6,9 @@ setLanguage("no");
 var formID = "1FAIpQLSdHEe-PntO7HLp6-d1j8rmmjqyWxZYryNDTels3lfVU0jbuRQ"
 var formpathID = "2020612733"
 
+var APIkey1 = "5b3ce3597851110001cf62488175ba79d09f41fcbe44fd20f3bd1fa2";
+var APIkey2 = "5b3ce3597851110001cf624856267c988af04c6b9f9359cc64ff5171";
+
 var points = [];
 var markers = [];
 var currentRoute = [];
@@ -108,7 +111,8 @@ function onMapClick(e) {
 function RequestRoute(callback, coords) { //coords format : [[long1,lat1],[long2,lat2],... ]
 	var request = new XMLHttpRequest();
 
-	request.open('GET', 'https://api.openrouteservice.org/v2/directions/foot-walking?api_key=5b3ce3597851110001cf624856267c988af04c6b9f9359cc64ff5171&start=' + coords[0][0] + ',' + coords[0][1] + '&end=' + coords[1][0] + ',' + coords[1][1]);
+	
+	request.open('GET', 'https://api.openrouteservice.org/v2/directions/foot-walking?api_key=' + APIkey1 + '&start=' + coords[0][0] + ',' + coords[0][1] + '&end=' + coords[1][0] + ',' + coords[1][1]);
 
 	request.setRequestHeader('Accept', 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8');
 
