@@ -9,8 +9,6 @@ var formpathID = "2020612733"
 var APIkey1 = "5b3ce3597851110001cf62488175ba79d09f41fcbe44fd20f3bd1fa2";
 var APIkey2 = "5b3ce3597851110001cf624856267c988af04c6b9f9359cc64ff5171";
 
-var cutDistance = 200;
-
 var points = [];
 var markers = [];
 var currentRoute = [];
@@ -209,7 +207,7 @@ function LoadGPXFile() {
 			route.push([lat,lon]);
 		}
 		
-		var cutRoute = CutPolyline(route, 100*Math.random()+150, 100*Math.random()+150); // Cut a random distance arround 200m
+		var cutRoute = CutPolyline(route, 50*Math.random()+200, 50*Math.random()+200); // Cut a random distance arround 200m
 		currentRoute = cutRoute;
 		
 		segmentPolyline = new L.Polyline(route, {
