@@ -9,6 +9,8 @@ var formpathID = "2020612733"
 var APIkey1 = "5b3ce3597851110001cf62488175ba79d09f41fcbe44fd20f3bd1fa2";
 var APIkey2 = "5b3ce3597851110001cf624856267c988af04c6b9f9359cc64ff5171";
 
+var cutDistance = 200;
+
 var points = [];
 var markers = [];
 var currentRoute = [];
@@ -197,17 +199,24 @@ function LoadGPXFile() {
 		const parser = new DOMParser();
 		const xmlDoc = parser.parseFromString(content, "text/xml");
 		const trkptElements = xmlDoc.getElementsByTagName("trkpt");
-		const route = [];
+		
+		const route = [];	
 		
 		for (e of trkptElements) {
 			const lat = e.getAttribute("lat");
 			const lon = e.getAttribute("lon");
+		
 			route.push([lat,lon]);
 		}
+		
+		var cutRoute = CutPolyline(route, 100*Math.random()+150, 100*Math.random()+150); // Cut a random distance arround 200m
+		currentRoute = cutRoute;
+		
 		segmentPolyline = new L.Polyline(route, {
 			color : '#0000FF',
 		});
 		segmentPolyline.addTo(map);
+		
 		currentPolyline.push(segmentPolyline);
 		
 		marker = L.marker(route[0], {icon: originIcon}).addTo(map);
@@ -215,13 +224,42 @@ function LoadGPXFile() {
 		marker = L.marker(route.slice(-1)[0], {icon: destIcon}).addTo(map);
 		markers.push(marker);
 		
-		currentRoute = route;
-		
 		OpenPopup();
 	}
 	reader.readAsText(file);
 }
 
+
+function CutPolyline(polyline, startCut, endCut) {
+	var cutLen = 0;
+	var cutPolyline = [];
+	
+	for (let i = 0; i < polyline.length; i++) {		
+		
+		if (cutLen < startCut && i+1 != polyline.length) {
+			cutLen += map.distance([polyline[i][0],polyline[i][1]],[polyline[i+1][0],polyline[i+1][1]]);
+		} else {
+			cutPolyline.push([polyline[i][0],polyline[i][1]]);
+		};
+	};
+	
+	polyline = cutPolyline;
+	
+	var cutLen = 0;
+	var cutPolyline = [];
+	
+	len = polyline.length;
+	for (let i = 1; i < len + 1; i++) {		
+	
+		if (cutLen < endCut && i+1 != polyline.length) {
+			cutLen += map.distance([polyline[len-i][0],polyline[len-i][1]],[polyline[len-i-1][0],polyline[len-i-1][1]]);
+		} else {
+			cutPolyline.push([polyline[len-i][0],polyline[len-i][1]]);
+		};
+	};
+	
+	return(cutPolyline);
+}
 
 
 function OpenPopup() {
