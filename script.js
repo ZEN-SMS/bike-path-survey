@@ -369,7 +369,7 @@ function OpenPopup() {
 				</label>
 				<label class="form-radio">
 				  <input type="checkbox" id="electric_bike"></input>
-				  Elektriske sykler <br><br>
+				  Elektrisk sykkel <br><br>
 			</div>
 
 			<em class="text-muted">Klikk på knappen for å validere denne ruten.</em>
