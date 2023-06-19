@@ -20,6 +20,7 @@ var polylines = [];
 var purposes = []
 var frequencies = []
 var seasons = []
+var elbikes = []
 
 var originIcon = L.icon({
 	iconUrl: 'leaflet/images/marker-icon-lime.png',
@@ -308,7 +309,10 @@ function OpenPopup() {
 				<label class="form-radio">
 				  <input type="radio" id="season3" name="season" value="all the year"></input>
 				  All the year <br><br>
-				</label>		
+				</label>
+				<label class="form-radio">
+				  <input type="checkbox" id="electric_bike"></input>
+				  Electric bike <br><br>
 			</div>
 			
 			<em class="text-muted">Click on the button to validate this route.</em>
@@ -362,7 +366,10 @@ function OpenPopup() {
 				<label class="form-radio">
 				  <input type="radio" id="season3" name="season" value="all the year"></input>
 				  Hele året <br><br>
-				</label>		
+				</label>
+				<label class="form-radio">
+				  <input type="checkbox" id="electric_bike"></input>
+				  Elektriske sykler <br><br>
 			</div>
 
 			<em class="text-muted">Klikk på knappen for å validere denne ruten.</em>
@@ -393,6 +400,12 @@ function EndRoute() {
 	var season = document.querySelector('input[name="season"]:checked').value;
 	seasons.push(season);
 	
+	if (document.getElementById("electric_bike").checked) {
+		elbikes.push("yes");
+	} else {
+		elbikes.push("no");
+	};
+	
 	document.getElementById("openPopup").disabled = true;
 	document.getElementById("removeLastPoint").disabled = true;
 	document.getElementById("sendRoute").disabled = false;
@@ -422,7 +435,7 @@ function SendRoute() {
 	
 	var path = gender + ";" + age + ";";
 	for (let i = 0; i < routes.length; i++) {
-		path = path + polyline.encode(routes[i]) + ";" + purposes[i] + ";" + frequencies[i] + ";" + seasons[i] + ";";
+		path = path + polyline.encode(routes[i]) + ";" + purposes[i] + ";" + frequencies[i] + ";" + seasons[i] + ";" + elbikes[i] + ";";
 	};
 	
 	var link = "https://docs.google.com/forms/d/e/" + formID + "/formResponse?usp=pp_url&entry." + formpathID + '=' + path + "&submit=Submit";
