@@ -150,10 +150,10 @@ function DisplayRoute(route) {
 	
 	
 function CalculateRoute(coords) {
-  RequestRoute(function(route) {
-    currentRoute = route;
-	DisplayRoute(currentRoute);
-  }, coords);
+	RequestRoute(function(route) {
+		DisplayRoute(route);
+		currentRoute =  currentRoute.concat(route);
+	}, coords);
 }
 
 
