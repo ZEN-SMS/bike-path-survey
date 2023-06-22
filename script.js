@@ -152,7 +152,7 @@ function DisplayRoute(route) {
 function CalculateRoute(coords) {
 	RequestRoute(function(route) {
 		DisplayRoute(route);
-		currentRoute =  currentRoute.concat(route);
+		// currentRoute =  currentRoute.concat(route);
 	}, coords);
 }
 
@@ -405,6 +405,12 @@ function EndRoute() {
 	} else {
 		elbikes.push("no");
 	};
+
+	for (s of currentPolyline) {
+		for (c of s.getLatLngs()) {
+			currentRoute.push([c.lat,c.lng]);
+		}
+	}
 	
 	document.getElementById("openPopup").disabled = true;
 	document.getElementById("removeLastPoint").disabled = true;
