@@ -20,7 +20,7 @@ var polylines = [];
 var purposes = []
 var frequencies = []
 var seasons = []
-var elbikes = []
+var bike_types = []
 
 var originIcon = L.icon({
 	iconUrl: 'leaflet/images/marker-icon-lime.png',
@@ -310,9 +310,22 @@ function OpenPopup() {
 				  <input type="radio" id="season3" name="season" value="all the year"></input>
 				  All the year <br><br>
 				</label>
+			</div>
+
+			<div class="form-group">
+				<label for="bike_type">What type of bike do you use most often for this route ?<br></label>
 				<label class="form-radio">
-				  <input type="checkbox" id="electric_bike"></input>
-				  Electric bike <br><br>
+				  <input type="radio" id="bike1" name="bike_type" value="regular" checked="checked"></input>
+				  Regular (traditional bike) <br>
+				</label>
+				<label class="form-radio">
+				  <input type="radio" id="bike2" name="bike_type" value="electric"></input>
+				  Electric <br>
+				</label>
+				<label class="form-radio">
+				  <input type="radio" id="bike3" name="bike_type" value="shared"></input>
+				  Shared bike (city bike) <br><br>
+				</label>
 			</div>
 			
 			<em class="text-muted">Click on the button to validate this route.</em>
@@ -367,16 +380,30 @@ function OpenPopup() {
 				  <input type="radio" id="season3" name="season" value="all the year"></input>
 				  Hele året <br><br>
 				</label>
+			</div>
+
+			<div class="form-group">
+				<label for="bike_type">Hvilken type sykkel bruker du oftest på denne ruten?<br></label>
 				<label class="form-radio">
-				  <input type="checkbox" id="electric_bike"></input>
-				  Elektrisk sykkel <br><br>
+				  <input type="radio" id="bike1" name="bike_type" value="regular" checked="checked"></input>
+				  Vanlig (tradisjonell sykkel) <br>
+				</label>
+				<label class="form-radio">
+				  <input type="radio" id="bike2" name="bike_type" value="electric"></input>
+				  Elektrisk <br>
+				</label>
+				<label class="form-radio">
+				  <input type="radio" id="bike3" name="bike_type" value="shared"></input>
+				  Delingssykkel (bysykkel) <br><br>
+				</label>
 			</div>
 
 			<em class="text-muted">Klikk på knappen for å validere denne ruten.</em>
 			<hr />
 			<button type="button" class="submitButton" onclick="EndRoute();">Valider denne ruten</button>
 			`,
-	closeButton: true});
+	closeButton: true,
+	maxHeight : document.getElementById("map").offsetHeight - 70});
 	};
 	markers.slice(-1)[0].bindPopup(popup).openPopup();
 }
@@ -400,11 +427,8 @@ function EndRoute() {
 	var season = document.querySelector('input[name="season"]:checked').value;
 	seasons.push(season);
 	
-	if (document.getElementById("electric_bike").checked) {
-		elbikes.push("yes");
-	} else {
-		elbikes.push("no");
-	};
+	var bike_type = document.querySelector('input[name="bike_type"]:checked').value;
+	bike_types.push(bike_type);
 
 	for (s of currentPolyline) {
 		for (c of s.getLatLngs()) {
@@ -441,7 +465,7 @@ function SendRoute() {
 	
 	var path = gender + ";" + age + ";";
 	for (let i = 0; i < routes.length; i++) {
-		path = path + polyline.encode(routes[i]) + ";" + purposes[i] + ";" + frequencies[i] + ";" + seasons[i] + ";" + elbikes[i] + ";";
+		path = path + polyline.encode(routes[i]) + ";" + purposes[i] + ";" + frequencies[i] + ";" + seasons[i] + ";" + bike_types[i] + ";";
 	};
 	
 	var link = "https://docs.google.com/forms/d/e/" + formID + "/formResponse?usp=pp_url&entry." + formpathID + '=' + path + "&submit=Submit";
