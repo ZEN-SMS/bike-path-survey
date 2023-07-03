@@ -114,6 +114,8 @@ function onMapClick(e) {
 
 
 function RequestRoute(callback, coords) { //coords format : [[long1,lat1],[long2,lat2],... ]
+    var request = new XMLHttpRequest();
+	
     var vehicle = document.querySelector('input[name="vehicle"]:checked').value;
 
     request.open('GET', 'https://api.openrouteservice.org/v2/directions/' + vehicle + '?api_key=' + APIkey1 + '&start=' + coords[0][0] + ',' + coords[0][1] + '&end=' + coords[1][0] + ',' + coords[1][1]);
