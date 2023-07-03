@@ -65,7 +65,7 @@ footer {
 /* Map */
 #map-container {
   width: 85%;
-  height: 85%;
+  height: 90%;
   margin-left : auto;
   margin-right : auto;
   margin-bottom : 50px;
@@ -74,7 +74,7 @@ footer {
 
 #map {
   position: relative;
-  height: 100%;
+  height: 85%;
 }
 
 #map:hover {
@@ -104,6 +104,12 @@ footer {
 
 .text-muted {
   font-size: smaller;
+}
+
+#selector {
+	height : 15%;
+	margin : 20px;
+	display : block;
 }
 
 #otherInput {
@@ -144,4 +150,8 @@ footer {
 
 .submitButton:active {
   background-color: #222;
+}
+
+.hr {
+	margin : 0;
 }
