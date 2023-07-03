@@ -20,7 +20,7 @@
 	</header>
 	
 	<footer>
-		<p id="title_instructions">Click on the map to set an origin and then click again to set a destination. If the route created does not match to the path you use, you can delete the last point and add checkpoints along your route. To ensure anonymity, we ask to start drawing about 200 m from the start and end point.</p>
+		<p id="title_instructions">Click on the map to set an origin and then click again to set a destination. If the route created does not match to the path you use, you can delete the last point and add checkpoints along your route.</p>
 		<label for="file_input">Or select a GPS file instead :</label> <input type="file" id="file_input"><span style="color:red; display:block" id="warning"></span> 
 		<div id="button-container">
 			<button class="button" type="button" id="removeLastPoint" onclick="RemoveLastPoint();" disabled="true">Remove last point</button>
@@ -31,7 +31,21 @@
 	
 	<div id="map-container">
 		<div id="map"></div>
-    </div>
+		<hr class="hr">
+		<div id="selector">
+			<label for="vehicle" id="selector_title">Route snapping option</label><br>
+				
+			<input type="radio" id="pedestrian" name="vehicle" value="foot-walking"></input>
+			<label class="form-radio" id="pedestrian_label" for="pedestrian">Sidewalk and pedestrian paths</label>
+					
+			<input type="radio" id="bike" name="vehicle" value="cycling-regular" checked="checked"></input>
+			<label class="form-radio" id="bike_label" for="bike">Bike paths and lanes</label>
+			
+			<input type="radio" id="car" name="vehicle" value="driving-car"></input>
+			<label class="form-radio" id="car_label" for="car">On road</label>
+		</div>
+
+	</div>
 	
 	<div id="userFormDiv" class="form-group">
 		<div id="userForm" class="form-group">
