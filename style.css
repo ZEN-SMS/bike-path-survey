@@ -70,11 +70,12 @@ footer {
   margin-right : auto;
   margin-bottom : 50px;
   border : 2px solid #333;
+  display : flex;
+  flex-direction : column;
 }
 
 #map {
-  position: relative;
-  height: 85%;
+  flex : 1;
 }
 
 #map:hover {
@@ -107,9 +108,7 @@ footer {
 }
 
 #selector {
-	height : 15%;
-	margin : 20px;
-	display : block;
+	margin : 10px;
 }
 
 #otherInput {
