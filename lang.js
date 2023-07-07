@@ -24,7 +24,7 @@ langEN = {
 
 langNO = {
 	"title_question" : "Hvor sykler du i Trondheim?",
-	"title_instructions" : "Klikk på kartet for å angi et startpunkt, og klikk deretter på nytt for å angi en destinasjon. Hvis den opprettede ruten ikke stemmer overens med ruten du sykler, kan du slette det siste punktet ved å klikke på «Fjern siste punkt»  for sa og legge til et nytt punkt. Når du føler at ruten du har tegnet er komplett, kan du klikke på \"Avslutt ruten\" og du vil bli spurt om å fylle ut et skjema. Når du er ferdig med å fylle ut skjemaet kan du trykke på «Valider denne ruten». Du tegne inn så mange ruter som du vil.  Når du er ferdig, kan do angi kjønn og alder, for så og klikker på \"Send dine ruter\".  For å sikre anonymitet ber vi om at du begynner å tegne ca. 200 m fra start- og sluttpunktet.",
+	"title_instructions" : "Klikk på kartet for å angi et startpunkt, og klikk deretter på nytt for å angi en destinasjon. Hvis den opprettede ruten ikke stemmer overens med ruten du sykler, kan du slette det siste punktet ved å klikke på «Fjern siste punkt»  for sa og legge til et nytt punkt. Når ruten du har tegnet er komplett, klikker på \"Avslutt ruten\" og du vil bli spurt om å fylle ut et skjema. Når du er ferdig med å fylle ut skjemaet kan du trykke på «Valider denne ruten». Du tegne inn så mange ruter som du vil.  Når du er ferdig, kan do angi kjønn og alder, for så og klikker på \"Send dine ruter\".  For å sikre anonymitet ber vi om at du begynner å tegne ca. 200 m fra start- og sluttpunktet.",
 	"title_file_instructions" : "Eller velg en GPS-fil i stedet:",
 	"button_remove" : "Fjern siste punkt",
 	"button_end" : "Avslutt ruten",
